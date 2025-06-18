@@ -1,0 +1,13 @@
+﻿@model Jeu
+
+<h2>Détails du jeu</h2>
+
+<ul>
+    <li><strong>Nom:</strong> @Model.Nom</li>
+    <li><strong>Description:</strong> @Model.Description</li>
+    <li><strong>Score:</strong> @Model.ScoreJoueur</li>
+    <li><strong>Date Sortie:</strong> @Model.DateSortie.ToShortDateString()</li>
+    <li><strong>Joueur:</strong> @Model.Joueur?.Prenom @Model.Joueur?.Nom</li>
+</ul>
+
+<a asp-action="Index" class="btn btn-secondary">Retour</a>

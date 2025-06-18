@@ -1,1 +1,38 @@
 ﻿@model List<DashboardViewModel>
+
+@{
+    ViewData["Title"] = "Tableau des scores";
+}
+
+<h2>Tableau des scores</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Équipe</th>
+            <th>Jeux</th>
+            <th>Score total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var joueur in Model)
+        {
+            <tr>
+                <td>@joueur.Joueur.Nom</td>
+                <td>@joueur.Joueur.Prenom</td>
+                <td>@joueur.Joueur.Equipe</td>
+                <td>
+                    <ul>
+                        @foreach (var jeu in joueur.Joueur.Jeux ?? new List<Jeu>())
+                        {
+                            <li><strong>@jeu.Nom:</strong> @jeu.ScoreJoueur</li>
+                        }
+                    </ul>
+                </td>
+                <td><strong>@joueur.ScoreTotal</strong></td>
+            </tr>
+        }
+    </tbody>
+</table>

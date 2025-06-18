@@ -1,0 +1,33 @@
+﻿@model List<Jeu>
+
+<h2>Liste des jeux</h2>
+
+<a asp-action="Creer" class="btn btn-primary">Ajouter un jeu</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Score</th>
+            <th>Date</th>
+            <th>Joueur</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var jeu in Model)
+        {
+            <tr>
+                <td>@jeu.Nom</td>
+                <td>@jeu.ScoreJoueur</td>
+                <td>@jeu.DateEnregistrement.ToShortDateString()</td>
+                <td>@jeu.Joueur?.Prenom @jeu.Joueur?.Nom</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@jeu.Id" class="btn btn-info btn-sm">Détails</a>
+                    <a asp-action="Supprimer" asp-route-id="@jeu.Id" class="btn btn-danger btn-sm">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

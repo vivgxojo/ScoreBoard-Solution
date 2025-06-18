@@ -18,12 +18,14 @@ namespace ScoreBoard.Models
         public string Description { get; set; }
 
         [Required]
-        [Range(1, int.MaxValue, ErrorMessage = "Le joueur doit exister.")]
-        public int JoueurId { get; set; }
+        [JoueurExist] //Le message d'erreur est définit dans la classe JoueurExistAttribute
+        public int JoueurId { get; set; } // Clé étrangère
 
-        public Joueur Joueur { get; set; }
+        public Joueur? Joueur { get; set; } // Navigation (Nullable pour passer la validation)
 
         [Required]
+        //Déclarer une règle de validation, qui peut être ensuite appliquée
+        //côtés serveur et client
         [Range(0, 100, ErrorMessage = "Le score doit être entre 0 et 100.")]
         public int ScoreJoueur { get; set; }
 

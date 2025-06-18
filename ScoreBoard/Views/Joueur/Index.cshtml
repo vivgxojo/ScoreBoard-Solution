@@ -1,1 +1,37 @@
 ﻿@*Cette vue doit afficher la liste des joueurs*@
+@model List<Joueur>
+
+@{
+    ViewData["Title"] = "Liste des joueurs";
+}
+
+<h2>Liste des joueurs</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Équipe</th>
+            <th>Téléphone</th>
+            <th>Courriel</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var joueur in Model)
+        {
+            <tr>
+                <td>@joueur.Nom</td>
+                <td>@joueur.Prenom</td>
+                <td>@joueur.Equipe</td>
+                <td>@joueur.Telephone</td>
+                <td>@joueur.Courriel</td>
+                <td>
+                    <a asp-action="Modifier" asp-route-id="@joueur.Id" class="btn btn-sm btn-primary">Modifier</a>
+                    <a asp-action="Supprimer" asp-route-id="@joueur.Id" class="btn btn-sm btn-danger">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

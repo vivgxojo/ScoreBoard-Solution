@@ -1,0 +1,48 @@
+﻿@model Jeu
+
+
+<h2>Créer un jeu</h2>
+
+<form asp-action="Creer" method="post">
+    <div class="form-group">
+        <label asp-for="Nom"></label>
+        <input asp-for="Nom" class="form-control" />
+        @* Emplacement pour les messages d'erreur *@
+        <span asp-validation-for="Nom" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DateSortie"></label>
+        <input asp-for="DateSortie" class="form-control" type="date" />
+        <span asp-validation-for="DateSortie" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DateEnregistrement"></label>
+        <input asp-for="DateEnregistrement" class="form-control" type="date" />
+        <span asp-validation-for="DateEnregistrement" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ScoreJoueur"></label>
+        <input asp-for="ScoreJoueur" class="form-control" />
+        <span asp-validation-for="ScoreJoueur" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="JoueurId">Joueur</label>
+        <input asp-for="JoueurId" class="form-control" />
+        <span asp-validation-for="JoueurId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Créer</button>
+    <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+</form>
+
+@* attacher la validation côté client *@
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

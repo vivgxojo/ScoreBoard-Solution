@@ -1,1 +1,44 @@
-﻿
+﻿@model Joueur
+
+@{
+    ViewData["Title"] = "Modifier un joueur";
+}
+
+<h2>Modifier un joueur</h2>
+
+<form asp-action="Modifier" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="Nom" class="form-label"></label>
+        <input asp-for="Nom" class="form-control" />
+        <span asp-validation-for="Nom" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Prenom" class="form-label"></label>
+        <input asp-for="Prenom" class="form-control" />
+        <span asp-validation-for="Prenom" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Equipe" class="form-label"></label>
+        <input asp-for="Equipe" class="form-control" />
+        <span asp-validation-for="Equipe" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Telephone" class="form-label"></label>
+        <input asp-for="Telephone" class="form-control" />
+        <span asp-validation-for="Telephone" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Courriel" class="form-label"></label>
+        <input asp-for="Courriel" class="form-control" />
+        <span asp-validation-for="Courriel" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+    <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+</form>
