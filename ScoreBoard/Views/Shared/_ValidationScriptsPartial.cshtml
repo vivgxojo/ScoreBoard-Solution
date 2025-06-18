@@ -1,6 +1,11 @@
 ﻿@* Bibliothèque de définitions des règles de validation pour les annotation existantes *@
-<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+@*<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>*@
+
+@* Utiliser un CDN si les librairies ne sont pas installées dans le projet. *@
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@4.0.0/dist/jquery.validate.unobtrusive.min.js"></script>
+
 
 @* Validation côté client *@
 
@@ -8,7 +13,6 @@
 <script>
     jQuery.validator.addMethod("datedanslepasse", function (value, element) {
         if (!value) return true;
-
         var inputDate = new Date(value);
         var today = new Date();
 
